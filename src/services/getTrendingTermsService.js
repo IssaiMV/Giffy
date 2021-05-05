@@ -6,7 +6,7 @@ const fromApiResponseToGifs = (apiResponse) => {
 };
 
 export default function getGifs({ keyword } = { keyword: "One Piece" }) {
-  const apiURL = `${API_URL}/treding/searches?api_key=${API_KEY}`;
+  const apiURL = `${API_URL}/trending/searches?api_key=${API_KEY}`;
   return fetch(apiURL)
     .then((res) => res.json())
     .then(fromApiResponseToGifs);
