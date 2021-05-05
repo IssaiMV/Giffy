@@ -1,6 +1,6 @@
 const apiKey = "epKexJSQgZ1YUH28s5AdYy8gEmTuL3H8";
 
-export default function getGifs(keyword = "One Piece") {
+export default function getGifs({ keyword } = { keyword: "One Piece" }) {
   const apiURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}&limit=10&offset=0&rating=g&lang=en`;
   return fetch(apiURL)
     .then((res) => res.json())
