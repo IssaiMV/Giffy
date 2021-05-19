@@ -3,13 +3,7 @@ import { useLocation } from "wouter";
 import ListOfGifs from "components/ListOfGifs";
 import useGifs from "hooks/useGifs";
 import TrendingSearches from "components/TrendingSearches/";
-
-const POPULAR_GIFS = [
-  "One piece",
-  "Boku no Hero",
-  "Demon Slayer",
-  "Dragon Ball",
-];
+import Loading from "components/Loading";
 
 export default function Home() {
   const [keyword, setKeyword] = useState("");
@@ -18,7 +12,7 @@ export default function Home() {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    pushLocation(`/search/${keyword}`);
+    pushLocation(`${path}search/${keyword}`);
   };
 
   const handleChange = (evt) => {
@@ -34,8 +28,14 @@ export default function Home() {
           value={keyword}
         />
       </form>
-      <h3>Ultima busqueda</h3>
-      <ListOfGifs gifs={gifs} />
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <h3>Ultima busqueda</h3>
+          <ListOfGifs gifs={gifs} />
+        </>
+      )}
       <TrendingSearches />
     </>
   );

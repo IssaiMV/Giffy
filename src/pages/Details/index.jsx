@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import Gif from "components/Gif";
 import useGlobalGifs from "hooks/useGlobalGifs";
 
