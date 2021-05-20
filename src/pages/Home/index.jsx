@@ -32,7 +32,7 @@ export default function Home() {
         <Loading />
       ) : (
         <>
-          <h3>Ultima busqueda</h3>
+          <h3>Última busqueda</h3>
           <ListOfGifs gifs={gifs} />
         </>
       )}
